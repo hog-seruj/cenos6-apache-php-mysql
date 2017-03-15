@@ -14,13 +14,11 @@ services:
 
   mysql:
     image: percona:5.7
-    volumes:
-      - /dev/shm/mysql-unim-dev:/var/lib/mysql:Z
     environment:
-      MYSQL_DATABASE: d8
-      MYSQL_USER: d8
-      MYSQL_PASSWORD: d8
-      MYSQL_ROOT_PASSWORD: d8root
+      MYSQL_DATABASE: d6
+      MYSQL_USER: d6
+      MYSQL_PASSWORD: d6
+      MYSQL_ROOT_PASSWORD: d6root
     restart: always
     networks:
       - back
