@@ -3,6 +3,7 @@ version: "2"
 services:
   web:
     build:
+      context: .
       dockerfile: Dockerfile
     ports:
       - "8087:80"
@@ -13,7 +14,9 @@ services:
     restart: always
 
   mysql:
-    image: percona:5.7
+    image: mysql:5.1
+    volumes:
+       - db_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: d6
       MYSQL_USER: d6
@@ -21,8 +24,4 @@ services:
       MYSQL_ROOT_PASSWORD: d6root
     restart: always
     networks:
-      - back
-
-networks:
-  back:
-    driver: bridge
+      - web
